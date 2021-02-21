@@ -66,4 +66,31 @@ def largestRectangle(h):
             inc = 1
     return max_h * consec
 
+# Logic
+
+# have max_h and consec
+
+# for each new_h,
+#   if new_h >= max_h:
+#       consec += 1
+#   else:
+#       max_h = new_h if the new area is bigger
+#
+# return max_h * consec
+
+
+# def consecutive(h, target):
+#     consec = 0
+#     while h:
+#         if h.pop() >= target:
+#             consec += 1
+
+#     return consec
+
+# def largestRectangle(h):
+#     max_h = h.pop()
+#     while h:
+#         new_h = h.pop()
+
+
 print(largestRectangle([11,11,10,10,10]))
