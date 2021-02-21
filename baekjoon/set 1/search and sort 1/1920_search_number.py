@@ -1,3 +1,5 @@
+# Lesson Learned, list slicing is SLOW
+
 def merge_sort(l):
     if len(l) == 1:
         return l
@@ -40,18 +42,27 @@ def merge_sort(l):
 #     return_val = binary_search(l[:mid], num) if num < l[mid] else binary_search(l[mid+1:], num)
 #     return -1 if return_val == -1 else return_val if num < l[mid] else mid + return_val + 1
 
-def binary_search(l, num):
-    if len(l) == 1:
-        return l[0] == num
-    mid = len(l) // 2
-    if l[mid] == num:
-        return True
-    return True and (binary_search(l[:mid], num) if num < l[mid] else binary_search(l[mid:], num))
+# def binary_search(l, num):
+#     if len(l) == 1:
+#         return l[0] == num
+#     mid = len(l) // 2
+#     if l[mid] == num:
+#         return True
+#     return True and (binary_search(l[:mid], num) if num < l[mid] else binary_search(l[mid:], num))
+
+def binary_search(l, n, low, up):
+    if low >= up:
+        return 0
+    mid = (up + low) // 2
+    if l[mid] == n:
+        return 1
+    return 1 * (binary_search(l, n, low, mid) if n < l[mid] else binary_search(l, n, mid + 1, up))
 
 int(input())
 nums = list(map(int, input().split()))
 int(input())
 target = list(map(int,input().split()))
-nums = merge_sort(nums)
+# nums = merge_sort(nums)
+nums.sort()
 for i in target:
-    print(int(binary_search(nums, i)))
+    print(int(binary_search(nums, i, 0, len(nums))))

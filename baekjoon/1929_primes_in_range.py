@@ -24,6 +24,7 @@
 
 
 # Sieve of Eratosthenes
+# my implementation using recursion
 from math import sqrt
 def findPrimes(n):
     if n == 2 or n == 3:
@@ -32,6 +33,17 @@ def findPrimes(n):
     primes = findPrimes(int(sqrt(n)))
     primes.extend(i for i in range(primes[0] + 1, n) if all(i % j != 0 for j in primes))
     return primes
+# the actual implementation on Internet
+def sieve(n):
+    prime = [True for i in range(n + 1)]
+    prime[0] = prime[1] = False
+    p = 2
+    while p*p <= n:
+        if prime[p]:
+            for i in range(p * 2, n + 1, p):
+                prime[i] = False
+        p += 1
+    return [i for i,j in enumerate(prime) if j]
 
 l,u = (int(i) for i in input().split())
 primes = findPrimes(int(sqrt(u)) + 1) 
