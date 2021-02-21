@@ -1,0 +1,101 @@
+*** ctrl+l in DB == clear in linux
+    quit == exit
+
+
+DB Commands			DB			Table
+
+create				o			o
+drop				o			o
+
+select(search)		x			o
+delete(delete)		x			o
+update(edit)		x			o
+insert(register)	x			o
+alter				x			o
+
+show				o			o
+use					o			x
+desc				x			o
+(=describe,
+explain)
+
+
+*desc == describe == explain, depends on the DB program used
+*these commands has to have ; at the end
+*don't use ctrl+c bc it's gonna abort the whole DB program
+*cases don't matter except table/databse names and values
+*All changes are applied after restarting daemon
+
+show: shows list of databases or tables
+    man)
+        show [databases|tables];
+    * ignore info&perf schemes
+
+    * The only tables that we need to focus on:
+        db : Table that links(connects?) the DB and the DB accounts using that DB
+        user : Table where DB accounts are created
+            * Host : system address(host name; e.g. localhost)
+
+use: changes DB and uses it; basically changes db
+    man)
+        use [DATABASE NAME];
+
+    desc: shows info of fields in the table
+    man)
+        desc [table name];
+
+
+
+create: creates database or table
+    man)
+        create [database|table] [name] (*if table, [column name] [type(length)])
+
+    e.g. 
+        create database dbsamadal;
+        create table tbsamadal (num int(10), name char(50));
+
+
+drop: rids of DB or Table
+    man)
+        drop [database|table] [name];
+
+
+select : searches value
+    man)
+        select [Field name1, Field name2, ...] from [Table name];
+
+delete: rids of values(entire row)
+    man)
+        delete from [Table name] [Condition];
+        *** Condition: where [Field name]=[Desired value]
+
+update: update a value under a certain field
+    man)
+        update [Table name] set [Field name]=[Desired value] [Condition];
+
+    *** for password only(to hash it)
+        update user set password=password('samadal') where password='';
+
+
+insert : to register a datum
+    man)
+
+    insert into [Table NAME] (columns...) values (values...);
+    *** columns is optional if inputting value for all columns
+
+    insert into db values ('localhost', 'dbsamadal', 'usersamadal',
+        -> 'y','y','y','y','y','y','y','y','y','y','y','y','y','y','y','y','y','y','y');
+
+
+alter : changes the field
+    man)
+
+    alter table [table name] change [og field] [new field] [new type];
+
+
+    e.g.)
+    alter table tbtest change phone phone char(20);
+
+    alter table tbtest drop phone;
+
+    alter table tbtest add tel char(13);
