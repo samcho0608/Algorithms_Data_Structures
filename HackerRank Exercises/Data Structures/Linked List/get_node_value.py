@@ -47,29 +47,26 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 def getNode(head, positionFromTail):
-    values = []
-    current = head
-    while current:
-        values.append(current.data)
-        current = current.next
-    return values[-(positionFromTail+1)]
+    # 4 3 2 1
+    #-4-3-2-1   # backwards position
+    # 3 2 1 0   # position given
+    #   *
+    if not head:
+        return -1
+    loc = getNode(head.next, positionFromTail)
+    if loc + positionFromTail == -1:
+        return head.data
+    if loc < 0:
+        return -1 + loc
+    return loc
+
+    # NON-RECURSIVE APPROACH
+    # values = []
     # current = head
-    # target = None
-    # while current.next:
-    #     if positionFromTail:
-    #         positionFromTail -= 1
-            
+    # while current:
+    #     values.append(current.data)
     #     current = current.next
-        
-    #     if not positionFromTail:
-    #         if not target:
-    #             target = head
-        
-    #         else:
-    #             target = target.next
-            
-        
-    # return target.data
+    # return values[-(positionFromTail+1)]
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

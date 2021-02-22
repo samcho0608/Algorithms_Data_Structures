@@ -46,6 +46,13 @@ def insertNodeAtTail(head, data):
     current.next = SinglyLinkedListNode(data)
     return head
 
+    # RECURSIVE METHOD
+    # sys.setrecursionlimit(1000000)
+    # if not head:
+    #     return SinglyLinkedListNode(data)
+    # head.next = insertNodeAtTail(head.next, data)
+    # return head
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 

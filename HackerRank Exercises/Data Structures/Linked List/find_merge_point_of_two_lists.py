@@ -47,20 +47,32 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 def findMergeNode(head1, head2):
-    lhead, rhead = head1, head2
-    start = head1
+    # O(n) method
+    l,r = head1, head2
     while True:
-        while True:
-            if lhead is rhead:
-                return lhead.data
+        if l is r:
+            return l.data
+        
+        l = l.next
+        r = r.next
+        if l is None:
+            l = head2
+        if r is None:
+            r = head1
+    # lhead, rhead = head1, head2
+    # start = head1
+    # while True:
+    #     while True:
+    #         if lhead is rhead:
+    #             return lhead.data
             
-            rhead = rhead.next
+    #         rhead = rhead.next
                 
-            if not rhead:
-                rhead = head2
-                break
-        lhead = start.next
-        start = start.next
+    #         if not rhead:
+    #             rhead = head2
+    #             break
+    #     lhead = start.next
+    #     start = start.next
         
     
     # curr1, curr2 = head1, head2

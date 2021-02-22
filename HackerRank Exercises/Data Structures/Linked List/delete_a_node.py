@@ -48,19 +48,28 @@ def print_singly_linked_list(node, sep, fptr):
 #
 def deleteNode(head, position):
     if not position:
-        if head.next:
-            head = head.next
-        else:
-            head = None
+        head = head.next
+    elif position < 2:
+        head.next = head.next.next
     else:
-        current = head
-        for n in range(position - 1):
-            current = current.next
-        if not current.next.next:
-            current.next = None
-        else:
-            current.next = current.next.next
+        deleteNode(head.next, position - 1)
     return head
+
+    # NONRECURSIVE VERSION
+    # if not position:
+    #     if head.next:
+    #         head = head.next
+    #     else:
+    #         head = None
+    # else:
+    #     current = head
+    #     for n in range(position - 1):
+    #         current = current.next
+    #     if not current.next.next:
+    #         current.next = None
+    #     else:
+    #         current.next = current.next.next
+    # return head
         
 
 if __name__ == '__main__':

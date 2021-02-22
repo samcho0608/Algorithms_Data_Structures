@@ -47,24 +47,32 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 def insertNodeAtPosition(head, data, position):
-    if not position:
-        if head:
-            next_node = head
-            head = SinglyLinkedListNode(data)
-            head.next = next_node
-        else:
-            head = SinglyLinkedListNode(data)
-        return head
-            
-    # didn't error check head
-    current = head
-    for n in range(position - 1):
-        current = current.next
-    next_node = current.next
-    current.next = SinglyLinkedListNode(data)
-    current.next.next = next_node
-    
+    if position < 2:
+        tmp, head.next = head.next, SinglyLinkedListNode(data)
+        head.next.next = tmp
+    else:
+        insertNodeAtPosition(head.next, data, position - 1)
     return head
+    
+    # NON-RECURSIVE VERSION
+    # if not position:
+    #     if head:
+    #         next_node = head
+    #         head = SinglyLinkedListNode(data)
+    #         head.next = next_node
+    #     else:
+    #         head = SinglyLinkedListNode(data)
+    #     return head
+            
+    # # didn't error check head
+    # current = head
+    # for n in range(position - 1):
+    #     current = current.next
+    # next_node = current.next
+    # current.next = SinglyLinkedListNode(data)
+    # current.next.next = next_node
+    
+    # return head
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

@@ -51,34 +51,45 @@ def print_doubly_linked_list(node, sep, fptr):
 #
 def sortedInsert(head, data):
     if not head:
-        head = DoublyLinkedListNode(data)
-        return head
-        
-    current = head
-    new_node = DoublyLinkedListNode(data)
+        return DoublyLinkedListNode(data)
+    if data <= head.data:
+        node = DoublyLinkedListNode(data)
+        node.prev = head.prev
+        node.next, head.prev = head, node
+        return node
     
-    while current:        
+    head.next = sortedInsert(head.next, data)
+    return head
+    # NON-RECURSIVE METHOD
+    # if not head:
+    #     head = DoublyLinkedListNode(data)
+    #     return head
         
-        if current.data >= data:
+    # current = head
+    # new_node = DoublyLinkedListNode(data)
+    
+    # while current:        
+        
+    #     if current.data >= data:
             
-            new_node.prev = current.prev
-            new_node.next = current
+    #         new_node.prev = current.prev
+    #         new_node.next = current
             
-            if current.prev:
-                current.prev.next = new_node
+    #         if current.prev:
+    #             current.prev.next = new_node
                 
-            current.prev = new_node
+    #         current.prev = new_node
             
-            while current.prev:
-                current = current.prev
+    #         while current.prev:
+    #             current = current.prev
             
-            return current
+    #         return current
         
-        if not current.next:
-            current.next = new_node
-            new_node.prev = current
-            return head
-        current = current.next
+    #     if not current.next:
+    #         current.next = new_node
+    #         new_node.prev = current
+    #         return head
+    #     current = current.next
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

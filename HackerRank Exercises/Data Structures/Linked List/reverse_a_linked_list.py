@@ -59,6 +59,14 @@ def reverse(head):
         current = current.next
         
     return head
+
+    # RECURSIVE VERSION
+    # if head.next:
+    #     node = reverse(head.next)
+    #     head.next.next = head
+    #     head.next = None
+    #     return node
+    # return head
     
         
 

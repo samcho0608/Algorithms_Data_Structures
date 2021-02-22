@@ -29,12 +29,14 @@ class SinglyLinkedList:
 
 def print_singly_linked_list(node, sep, fptr):
     while node:
-        fptr.write(str(node.data))
+        # fptr.write(str(node.data))
+        print(node.data)
 
         node = node.next
 
         if node:
-            fptr.write(sep)
+            # fptr.write(sep)
+            print(sep)
 
 # Complete the removeDuplicates function below.
 
@@ -47,23 +49,30 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 def removeDuplicates(head):
-    current = head
-    while current:
-        cursor = current.next
-        prev = current
-        while cursor:
-            if cursor.data == current.data:
-                prev.next = cursor.next
-            else:
-                prev = cursor
-            cursor = cursor.next
-
-        current = current.next
-    
+    if not head.next:
+        return head
+    print(head.data)
+    if removeDuplicates(head.next).data == head.data:
+        head.next = head.next.next
     return head
+#   NON-RECURSIVE METHOD
+#     current = head
+#     while current:
+#         cursor = current.next
+#         prev = current
+#         while cursor:
+#             if cursor.data == current.data:
+#                 prev.next = cursor.next
+#             else:
+#                 prev = cursor
+#             cursor = cursor.next
+
+#         current = current.next
+    
+#     return head
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     t = int(input())
 
@@ -78,7 +87,7 @@ if __name__ == '__main__':
 
         llist1 = removeDuplicates(llist.head)
 
-        print_singly_linked_list(llist1, ' ', fptr)
-        fptr.write('\n')
+        # print_singly_linked_list(llist1, ' ', fptr)
+    #     fptr.write('\n')
 
-    fptr.close()
+    # fptr.close()

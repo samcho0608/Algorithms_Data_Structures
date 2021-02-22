@@ -47,31 +47,49 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 def mergeLists(head1, head2):
-    # head of merged list
+    sys.setrecursionlimit(1000000)
+    if not (head1 and head2):
+        if head1:
+            head1.next = mergeLists(head1.next, head2)
+            return head1
+        if head2:
+            head2.next = mergeLists(head1, head2.next)
+            return head2
+        else:
+            return None
+    
     if head1.data < head2.data:
-        merged = head1
-        head1 = head1.next
+        head1.next = mergeLists(head1.next, head2)
+        return head1
     else:
-        merged = head2
-        head2 = head2.next
+        head2.next = mergeLists(head1, head2.next)
+        return head2
+    # NON-RECURSIVE METHOD
+    # # head of merged list
+    # if head1.data < head2.data:
+    #     merged = head1
+    #     head1 = head1.next
+    # else:
+    #     merged = head2
+    #     head2 = head2.next
         
-    head = merged
-    while head1 or head2:
-        # if either of them are None
-        if (not head1) ^ (not head2):
-            smaller = head1 if head1 is not None else head2
-        else:
-            smaller = head1 if head1.data < head2.data else head2
-        if smaller is head1:
-            head1 = head1.next
-        else:
-            head2 = head2.next
+    # head = merged
+    # while head1 or head2:
+    #     # if either of them are None
+    #     if (not head1) ^ (not head2):
+    #         smaller = head1 if head1 is not None else head2
+    #     else:
+    #         smaller = head1 if head1.data < head2.data else head2
+    #     if smaller is head1:
+    #         head1 = head1.next
+    #     else:
+    #         head2 = head2.next
         
-        smaller.next = None
-        merged.next = smaller
-        merged = merged.next
+    #     smaller.next = None
+    #     merged.next = smaller
+    #     merged = merged.next
         
-    return head
+    # return head
             
 
 if __name__ == '__main__':

@@ -43,6 +43,11 @@ def printLinkedList(head):
         print(current.data)
         current = current.next
         
+    # RECURSIVE VERSION
+    # if head:
+    #     print(head.data)
+    #     printLinkedList(head.next)
+        
         
 
 if __name__ == '__main__':

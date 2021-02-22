@@ -55,6 +55,11 @@ def reversePrint(head):
     while values:
         print(values.pop())
 
+    # RECURSIVE METHOD
+    # if head:
+    #     reversePrint(head.next)
+    #     print(head.data)
+
 if __name__ == '__main__':
     tests = int(input())
 

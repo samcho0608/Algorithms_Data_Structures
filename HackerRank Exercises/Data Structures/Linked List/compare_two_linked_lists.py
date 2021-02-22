@@ -55,6 +55,13 @@ def compare_lists(llist1, llist2):
         return False
     return True
 
+    # RECURSIVE
+    # if not (llist1 or llist2):
+    #     return True
+    # if bool(llist1) ^ bool(llist2):
+    #     return False
+    # return llist1.data == llist2.data and compare_lists(llist1.next, llist2.next)
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 

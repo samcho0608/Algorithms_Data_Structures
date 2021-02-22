@@ -50,14 +50,22 @@ def print_doubly_linked_list(node, sep, fptr):
 #
 #
 def reverse(head):
-    current = head
-    while True:
-        temp = current.next
-        current.next = current.prev
-        current.prev = temp
-        if current.prev is None:
-            return current
-        current = temp
+    if not head.next:
+        head.prev, head.next = head.next, head.prev
+        return head
+    node = reverse(head.next)
+    head.prev, head.next = head.next, head.prev
+    return node
+# NON-RECURSIVE METHOD
+# def reverse(head):
+#     current = head
+#     while True:
+#         temp = current.next
+#         current.next = current.prev
+#         current.prev = temp
+#         if current.prev is None:
+#             return current
+#         current = temp
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

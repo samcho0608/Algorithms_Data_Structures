@@ -37,12 +37,9 @@ def print_singly_linked_list(node, sep, fptr):
 #
 def insertNodeAtHead(llist, data):
     if not llist:
-        llist = SinglyLinkedListNode(data)
-        return llist
-    new_head = SinglyLinkedListNode(data)
-    new_head.next = llist
+        return SinglyLinkedListNode(data)
+    new_head, new_head.next = SinglyLinkedListNode(data), llist
     return new_head
-    # Write your code here
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
