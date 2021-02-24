@@ -1,4 +1,4 @@
-# sieve of Ertosthenes
+# sieve of Eratosthenes
 def sieve(n):
     prime = [True for i in range(n + 1)]
     prime[0] = prime[1] = False

@@ -1,0 +1,11 @@
+Backtracking: Checking all possibilities
+
+DFS : preorder search method
+    Recursion
+    Use this except when there is a loop
+
+BFS : levelorder search method
+    Queue
+    Use to find the shortest distance between two points
+
+Best First Search
