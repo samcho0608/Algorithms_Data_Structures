@@ -1,0 +1,35 @@
+Paradigms:
+    Greedy : choose the best value at this very moment
+        used very well for optimal substructure or greedy choice property
+            aka whenever current choice doesn't affect the choice later
+            or the current optimal choice is the overall optimal choice
+    Dynamic : using previously found values via memo-ization
+        prevents all repetitive calculations(e.g. fibonacci)
+    Divide and Conquer : dividing large group of data into smaller bits and conquering each of them
+    Backtracking : algorithm checking all possibilities; appropriate when we can
+                   show the possibilities in a tree form.(tree search)
+
+Two Pointer : using two pointers on 1 dimensional array to find out the desired value
+              When pointers are both going forward only
+              e.g. BOJ 2003
+              O(N)
+
+Prefix Sum : In a linear array, create another array that has cumulative sum till that index.
+             When asked for sum of all numbers in a certain range [L,R], you can do
+             prefix_sum[R] - prefix_sum[L-1]
+
+Minimum Spanning Tree:
+    Kuskal :
+    Prim :
+
+
+Search:
+    Binary Search : divide and conquer method of search
+    DFS : Depth first search; checks till the leaf, then moves onto the next node from the source
+        *** do not use when there is a loop
+    BFS : Breadth first search; queues in each node then checks the next level
+        *** be careful of stack overflow
+Distance:
+    Floyd-Warshall : Finds all the shortest distances between points on the graph
+    Dijkstra : Finds the shortest distance from one point to another
+    Bellman-Ford : Same as Dijkstra except it can take care of negative weights
