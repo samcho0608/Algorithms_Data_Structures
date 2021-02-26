@@ -1,13 +1,27 @@
 Paradigms:
     Greedy : choose the best value at this very moment
-        used very well for optimal substructure or greedy choice property
+          - used very well for optimal substructure or greedy choice property
             aka whenever current choice doesn't affect the choice later
             or the current optimal choice is the overall optimal choice
-    Dynamic : using previously found values via memo-ization
-        prevents all repetitive calculations(e.g. fibonacci)
+
+    Dynamic Programming : preventing all repetitive calculations(e.g. fibonacci) by memoing
+        Memoization : keeping already calculated values in memory
+        Top Down : starts from the top and keeps all the calculations done for it in the memory
+        Bottom Up : starts from the bottom and keeps all the calculations till desired result in memory
+    
     Divide and Conquer : dividing large group of data into smaller bits and conquering each of them
+
+    *** you use dynamic and divide and conquer in optimal substructure choices with hella numbers
+        difference is do you use the prev calculation's value
+        e.g.
+            DP : fibonacci
+            DC : binary search
+    
     Backtracking : algorithm checking all possibilities; appropriate when we can
                    show the possibilities in a tree form.(tree search)
+
+Parametric Search: changing optimization problem into decision problem(yes, no)
+            e.g. finding the best value meeting certain criteria
 
 Two Pointer : using two pointers on 1 dimensional array to find out the desired value
               When pointers are both going forward only

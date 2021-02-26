@@ -1,7 +1,7 @@
-n, m = map(int, input().split())
-spots = [list(input()) for i in range(n)]
-count = 0
-visited = []
+# n, m = map(int, input().split())
+# spots = [list(input()) for i in range(n)]
+# count = 0
+# visited = []
 
 # # my implementation
 # def dfs(i,j):
