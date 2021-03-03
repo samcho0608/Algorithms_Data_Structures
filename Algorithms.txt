@@ -8,6 +8,10 @@ Paradigms:
         Memoization : keeping already calculated values in memory
         Top Down : starts from the top and keeps all the calculations done for it in the memory
         Bottom Up : starts from the bottom and keeps all the calculations till desired result in memory
+
+            Longest Increasing Sequence(LIS):
+                D[i] = length of the longest increasing subsequence that has array[i] as its last element
+                For all 0 <= j < i, D[i] = max(D[i], D[j]) if array[j] < array[i]
     
     Divide and Conquer : dividing large group of data into smaller bits and conquering each of them
 
@@ -31,10 +35,6 @@ Two Pointer : using two pointers on 1 dimensional array to find out the desired 
 Prefix Sum : In a linear array, create another array that has cumulative sum till that index.
              When asked for sum of all numbers in a certain range [L,R], you can do
              prefix_sum[R] - prefix_sum[L-1]
-
-Minimum Spanning Tree:
-    Kuskal :
-    Prim :
 
 
 Search:
