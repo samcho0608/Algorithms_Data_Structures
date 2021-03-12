@@ -1,0 +1,1 @@
+select n, if(p is null, 'Root', if(n in (select p from bst), 'Inner', 'Leaf')) from bst as a order by n;

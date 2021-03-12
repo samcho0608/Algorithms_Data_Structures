@@ -4,5 +4,4 @@ select city from station where left(city,1)='a' or left(city,1)='e' or left(city
 -- there's also right
 
 -- or u can use the following
--- group items using ()? CHECK UP ON THIS
 select city from station where left(city,1) in ('a','e','i','o','u');

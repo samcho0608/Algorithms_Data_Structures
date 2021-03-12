@@ -1,0 +1,66 @@
+order by A, B
+    order by A first then among the ones that are same
+    order by B
+
+alias
+    SELECT DISTINCT HOUR(DATETIME) HOUR, COUNT(HOUR(DATETIME))
+    FROM ANIMAL_OUTS
+    GROUP BY HOUR HAVING HOUR BETWEEN 9 AND 19
+    ORDER BY HOUR
+    
+    select creates a new table basically and what we write after that will be the name of columns
+    group by and order by are done on this created table, not the source table
+    so we have to use the alias we set for the columns in select
+
+recursive
+    creates a virtual table to use without using inserts
+    with recursive TABLE_NAME as(
+        select INITIAL_VALUE as COLUMN_NAME1
+        union all
+        select COLUMN_NAME1 CALCULATION from TABLE_NAME where CONDITION
+    )
+
+    e.g.
+
+    with recursive cte as(
+        select 1 as have
+        union all
+        select h+1 from cte where h<5
+    )
+    // creates a virtual table 
+    // h
+    // 1
+    // 2
+    // 3
+    // 4
+    // 5
+
+    with recursive hours as(
+        select 0 as h
+        union all
+        select h + 1 from hours where h < 23
+    )
+    SELECT h, count(hour(datetime)) from hours left outer join animal_outs on (h=hour(datetime)) group by h;
+
+join
+    join combines two tables into one on something they share
+
+    INTERSECTION
+        select <select_list>
+        from A
+        inner join b
+        on CONDITION
+    
+    LEFT JOIN
+        select <select_list>
+        from A
+        inner join b
+        on CONDITION
+
+    RIGHT JOIN
+        select <select_list>
+        from A
+        inner join b
+        on CONDITION
+    
+DATE and String Functions!

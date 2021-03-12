@@ -5,7 +5,6 @@ def sieve(n):
     p = 2
     while p*p <= n:
         if prime[p]:
-            for i in range(p * 2, n + 1, p):
-                prime[i] = False
+            prime[p*2::p] = [False] * (n//p - 1)
         p += 1
     return [i for i,j in enumerate(prime) if j]

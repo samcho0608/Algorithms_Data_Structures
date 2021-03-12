@@ -99,3 +99,5 @@ alter : changes the field
     alter table tbtest drop phone;
 
     alter table tbtest add tel char(13);
+
+
