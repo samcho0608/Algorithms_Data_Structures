@@ -2,6 +2,12 @@ order by A, B
     order by A first then among the ones that are same
     order by B
 
+group by COLUMN (having CONDITION)
+    basically creates a subtable divided by COLUMN based on CONDITION
+
+distinct
+    finds only the unique values
+
 alias
     SELECT DISTINCT HOUR(DATETIME) HOUR, COUNT(HOUR(DATETIME))
     FROM ANIMAL_OUTS
@@ -62,5 +68,79 @@ join
         from A
         inner join b
         on CONDITION
-    
-DATE and String Functions!
+
+Functions!
+    String(the string indices are 1,... instead of 0,...)
+        concat  : Adds two or more expressions together
+            CONCAT(expression1, expression2, expression3,...)
+        format  : Formats a number to a format like "#,###,###.##", rounded to a specified number of decimal places
+            FORMAT(number, decimal_places)
+        insert  : Inserts a string within a string at the specified position and for a certain number of characters
+            INSERT(string, position, number, string2)
+        instr   : Returns the position of the first occurrence of a string in another string(0 if not in string)
+            INSTR(string1, string2) # search string2 in string1
+        lower   : Converts a string to lower-case
+        left    : Extracts a number of characters from a string (starting from left)
+        length  : Returns the length of a string (in bytes)
+        repeat  : Repeats a string as many times as specified
+        replace : Replaces all occurrences of a substring within a string, with a new substring
+            REPLACE(string, from_string, new_string)
+        reverse : Reverses a string and returns the result
+        right   : same as left but from right
+        substr  : Extracts a substring from a string (starting at any position)
+            SUBSTR(string, start, length)
+        trim    : Removes leading and trailing spaces from a string
+        upper   : Converts a string to upper-case
+
+    Date
+        Types:
+            Date     : 'YYYY-MM-DD'
+            Datetime : 'YYYY-MM-DD HH:MM:SS'
+            Time     : 'HH:MM:SS' or 'HHH:MM:SS'
+        
+        Now         : Returns current date and time
+        Curdate     : Returns current Date
+        Curtime     : Returns current time
+        date        : Returns the date part of the input
+        month       : Returns the month part of the input
+        day         : Returns the day part of the input
+        hour        : Returns the hour part of the input
+        minute      : Returns the minute part of the input
+        second      : Returns the second part of the input
+        monthname   : Returns the name of the month
+        dayname     : Returns the day of the week
+        dayofweek   : Returns which day of the week the input is(1=Sun, 7=Sat)
+        dayofmonth  : Returns which day of the month the input is [0, 31]
+        dayofyear   : Returns which day of the year the input is [0,366]
+        DATE_FORMAT :
+            %a	Abbreviated weekday name (Sun to Sat)
+            %b	Abbreviated month name (Jan to Dec)
+            %c	Numeric month name (0 to 12)
+            %D	Day of the month as a numeric value, followed by suffix (1st, 2nd, 3rd, ...)
+            %d	Day of the month as a numeric value (01 to 31)
+            %e	Day of the month as a numeric value (0 to 31)
+            %f	Microseconds (000000 to 999999)
+            %H	Hour (00 to 23)
+            %h	Hour (00 to 12)
+            %I	Hour (00 to 12)
+            %i	Minutes (00 to 59)
+            %j	Day of the year (001 to 366)
+            %k	Hour (0 to 23)
+            %l	Hour (1 to 12)
+            %M	Month name in full (January to December)
+            %m	Month name as a numeric value (00 to 12)
+            %p	AM or PM
+            %r	Time in 12 hour AM or PM format (hh:mm:ss AM/PM)
+            %S	Seconds (00 to 59)
+            %s	Seconds (00 to 59)
+            %T	Time in 24 hour format (hh:mm:ss)
+            %U	Week where Sunday is the first day of the week (00 to 53)
+            %u	Week where Monday is the first day of the week (00 to 53)
+            %V	Week where Sunday is the first day of the week (01 to 53). Used with %X
+            %v	Week where Monday is the first day of the week (01 to 53). Used with %x
+            %W	Weekday name in full (Sunday to Saturday)
+            %w	Day of the week where Sunday=0 and Saturday=6
+            %X	Year for the week where Sunday is the first day of the week. Used with %V
+            %x	Year for the week where Monday is the first day of the week. Used with %v
+            %Y	Year as a numeric, 4-digit value
+            %y	Year as a numeric, 2-digit value
