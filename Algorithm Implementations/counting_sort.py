@@ -10,7 +10,7 @@ def counting_sort(arr):
     for val, occur in enumerate(counter):
         while occur:
             arr[index] = val
-            occur -= 1
+            # occur -= 1
             index += 1
 
 arr = [0,3,9,4,4,5,8,8,3,4,0,9,3,9]
