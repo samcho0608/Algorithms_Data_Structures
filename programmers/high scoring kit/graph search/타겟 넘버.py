@@ -31,7 +31,11 @@
 # +-
 # dfs
 
-
+# until left with only one number
+#   when left with only one number, return the count of reaching the target number from +,-
+# 
+# recursively
+#   return the sum of solution(numbers from next index and target +,- number at 0)
 def solution(numbers, target):
     if len(numbers) == 1:
         return sum([target + numbers[0] ==  0, target - numbers[0] == 0])
