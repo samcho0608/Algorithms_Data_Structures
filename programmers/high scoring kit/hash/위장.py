@@ -38,19 +38,14 @@
 # 3. smoky_makeup
 
 from collections import Counter
-from itertools import combinations
-from math import prod
 
 def solution(clothes : list[list[str]]) -> int:
     counts = Counter([c[1] for c in clothes])
-    answer = 0
-    for i in range(0, len(counts) + 1) :
-        if not i :
-            continue
-        for combination in combinations(counts.values(), i) :
-            answer += prod(combination)
+    answer = 1
+    for c in counts.values() :
+        answer *= c + 1
+    return answer - 1
 
-    return answer
-assert solution(["yellow_hat", "headgear"]) == 1
+assert solution([["yellow_hat", "headgear"]]) == 1
 assert solution([["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]]) == 5
 assert solution([["crow_mask", "face"], ["blue_sunglasses", "face"], ["smoky_makeup", "face"]]) == 3
