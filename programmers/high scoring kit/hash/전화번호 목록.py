@@ -54,14 +54,13 @@
 
 #     return True
 
-def solution(phone_book : list[str]) -> bool:
-    sortedPhoneBook = sorted(phone_book)
-
-    for i in range(1, len(phone_book)):
-        prev = sortedPhoneBook[i-1]
-        a = sortedPhoneBook[i][:len(prev)]
-        if prev == phone_book[i][:len(prev)] :
+# solution
+def solution(p) -> bool:
+    p.sort()
+    for i in range(len(p)-1): 
+        if p[i] == (p[i+1])[:len(p[i])] : 
             return False
+
     return True
 
 assert solution(["119", "97674223", "1195524421"]) == False
