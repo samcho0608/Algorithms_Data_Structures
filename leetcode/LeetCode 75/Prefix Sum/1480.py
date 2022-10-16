@@ -25,8 +25,19 @@
 # -10^6 <= nums[i] <= 10^6
 
 class Solution(object) :
+    # def runningSum(self, nums):
+    #     result = [nums[0]]
+    #     for num in nums[1:]:
+    #         result.append(result[-1] + num)
+    #     return result
+
+    # def runningSum(self, nums):
+    #     answer = [nums[0]]
+    #     for i in range(1, len(nums)) :
+    #         answer.append(nums[i] + answer[i-1])
+    #     return answer
+
     def runningSum(self, nums):
-        result = [nums[0]]
-        for num in nums[1:]:
-            result.append(result[-1] + num)
-        return result
+        for i in range(1, len(nums)) :
+            nums[i] += nums[i-1]
+        return nums
